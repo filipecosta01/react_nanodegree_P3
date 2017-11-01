@@ -60,6 +60,7 @@ export class NewDeck extends Component {
 
     addToDeck(value)
       .then(() => navigation.navigate('Home'))
+      .then(() => navigation.navigate('DeckDetails', { title: value }))
   }
 
   render() {
