@@ -6,10 +6,11 @@ import { View, Platform, StatusBar } from 'react-native'
 import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons'
 import { blueBar, darkerBlue, white, pink } from '../../utils/colors'
 
-import DeckDetailsContainer from '../../containers/DeckDetailsContainer'
-import DeckNewQuestionContainer from '../../containers/DeckNewQuestionContainer'
+import QuizContainer from '../../containers/QuizContainer'
 import DecksContainer from '../../containers/DecksContainer'
 import NewDeckContainer from '../../containers/NewDeckContainer'
+import DeckDetailsContainer from '../../containers/DeckDetailsContainer'
+import DeckNewQuestionContainer from '../../containers/DeckNewQuestionContainer'
 
 import styled from 'styled-components/native'
 
@@ -71,6 +72,9 @@ const Stack = StackNavigator(
     },
     DeckNewQuestion: {
       screen: DeckNewQuestionContainer
+    },
+    Quiz: {
+      screen: QuizContainer
     }
   },
   {

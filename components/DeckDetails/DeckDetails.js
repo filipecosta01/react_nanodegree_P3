@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { FlatList, View, Text, TouchableOpacity } from 'react-native'
 import { red, green, white, blueBar, darkGrey, darkerBlue } from '../../utils/colors'
 
+import { clearLocalNotifications } from '../../utils'
+
+import Deck from '../Deck'
 import Button from '../Button'
 import Question from '../Question'
-import Deck from '../Deck'
 import styled from 'styled-components/native'
 
 const DeckDetailsContainer = styled.View`
@@ -80,6 +82,14 @@ export class DeckDetails extends Component {
     navigation.navigate('DeckNewQuestion', { title: deck.title })
   }
 
+  _handleStartQuiz = () => {
+    const { navigation, deck } = this.props
+
+    navigation.navigate('Quiz', { title: deck.title })
+
+    clearLocalNotifications()
+  }
+
   render() {
     const { deck } = this.props
     const pluralize = deck.questions.length !== 1
@@ -110,6 +120,7 @@ export class DeckDetails extends Component {
 
           <Button
             title="Start Quiz"
+            disabled={!hasQuestions}
             onPress={this._handleStartQuiz}
             style={{ width: 200, backgroundColor: green }}
           />

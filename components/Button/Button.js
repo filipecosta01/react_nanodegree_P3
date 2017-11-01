@@ -19,9 +19,15 @@ const StyledButtonTitle = styled.Text`
 export class Button extends Component {
 
   render() {
-    const { title, style, onPress } = this.props
+    const { title, style, disabled, onPress } = this.props
+
     return (
-      <StyledButton style={style} onPress={onPress}>
+      <StyledButton
+        style={style}
+        onPress={onPress}
+        disabled={disabled}
+        activeOpacity={ disabled ? 1 : 0.5 }
+      >
         <StyledButtonTitle>{title}</StyledButtonTitle>
       </StyledButton>
     )

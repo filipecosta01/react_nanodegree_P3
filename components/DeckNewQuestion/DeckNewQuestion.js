@@ -97,12 +97,13 @@ export class NewDeck extends Component {
           <View style={{ flex: 1}}>
             <NewQuestionTitle>Insert New Question</NewQuestionTitle>
             <Input
-              style={{ marginBottom: 20 }}
               title="Question Title   "
               value={question.value}
               formError={question.error}
               onChangeText={this._onQuestionChangeText}
             />
+
+            <View style={{ margin: 10 }} />
 
             <Input
               title="Correct Answer"

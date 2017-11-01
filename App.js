@@ -9,6 +9,8 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import reducer from './reducers'
 import MainNavigator from './components/MainNavigator'
 
+import { setLocalNotification } from './utils'
+
 const middlewares = [thunk]
 const enhancer = composeWithDevTools(
   {
@@ -22,9 +24,12 @@ const store = createStore(
 )
 
 export default class App extends React.Component {
-  
-  render() {
 
+  componentDidMount() {
+    setLocalNotification()
+  }
+
+  render() {
     return (
       <Provider store={store}>
         <MainNavigator />
